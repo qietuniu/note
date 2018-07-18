@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title>react singer page app </title>
+		<title>hello react</title>
+		<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		<script src="http://cdn.bootcss.com/react-router/0.13.3/ReactRouter.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			
+		</style>
 	</head>
+
 	<body>
+		<div id="container"></div>
+		<script type="text/babel">
+			//jsx
+			var container = document.querySelector("#container");
+			let App = React.createClass({
+				render:function() {
+					return (
+						<div>
+							<h1>simple SAP</h1>
+							<ul className="header">
+								<li>美短</li>
+								<li>中华田园猫</li>
+							</ul>
+						</div>
+					)
+				}
+			})
+			ReactDOM.render(
+				<div>hello ct </div>
+				,container				
+			);
+		</script>
 	</body>
+
 </html>
