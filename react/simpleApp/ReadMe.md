@@ -35,10 +35,10 @@
 2. ReactDOM.render()
 	* ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
    * 项目2
-3. React.render和reactDom.render的区别
+3. React和ReactDOM.的区别
    * react包包含了React.createElement，.createClass，.Component，.PropTypes，.children以及其他元素和组件类
    ``` bash
-   	 ReactDOM.render(
+   	ReactDOM.render(
     	<h1>React入门教程</h1>,
     	document.getElementById("a")
 	 );
@@ -47,3 +47,9 @@
    ``` bash
    	 React.render(<h1>React入门教程</h1>,document.getElementById("a"));
    ``` 
+4. react-router提供了三种方式来实现路由
+   * browserHistory：浏览器会向server发送request，所以server要做特殊请求，比如用的 express 的话，你需要 handle 所有的路由 app.get('*', (req, res) => { ... })，使用了 nginx 的话，nginx也要做相应的配置
+   > 浏览器的url是这样的：/user/liuna
+   * hashHistory(静态)：因为有 # 的存在，浏览器不会发送request,react-router 自己根据 url 去 render 相应的模块。
+   > 浏览器的url是这样的：/#/user/liuna?_k=adseis
+   * createMemoryHistory

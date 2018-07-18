@@ -9,7 +9,42 @@
 		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
 		<script src="http://cdn.bootcss.com/react-router/0.13.3/ReactRouter.min.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
-			
+			body{
+				padding: 0;
+				margin: 0;
+				background-color:#fc0;
+			}
+			h1,h2,p,ul,li{
+				font-family: helvetica,arial,sans-serif;
+				padding: 0;
+				margin: 0;
+			}
+			h1.top{
+				padding: 10px 0;
+			}
+			ul.header li{
+				display: inline;
+				list-style-type: none;
+				margin: 0;
+			}
+			ul.header{
+				background-color: #111;
+				margin-bottom: 10px;
+			}
+			 ul.header li {
+			 	color: #fff;
+			 	font-weight: bold;
+			 	text-decoration:none;
+			 	padding: 20px;
+			 	display: inline-block;
+			 }
+			 .content{
+			 	background-color: #fff;
+			 	padding: 20px;
+			 }
+			 .content li{
+			 	margin-bottom: 10px;			 	
+			 }
 		</style>
 	</head>
 
@@ -17,24 +52,52 @@
 		<div id="container"></div>
 		<script type="text/babel">
 			//jsx
-			var container = document.querySelector("#container");
+			let {
+				Router,
+				Route,
+				IndexRoute,
+				IndexLink,
+				Link,
+				hashHistory
+			} = ReactRouter;
+			let container = document.querySelector("#container");
+			let Home = React.createClass({
+				render:function() {
+					return (
+						<div>
+							<h2></h2>
+							<p>美国短毛猫（American Shorthair）是原产美国的一种猫，其祖先为欧洲早期移民带到北美的猫种，与英国短毛猫和欧洲短毛猫同类。据记载，五月花号上携带了数只猫以帮助除鼠。该品种的猫是在街头巷尾收集来的猫当中选种、并和进口品种如英国短毛猫、缅甸猫和波斯猫杂交培育而成。美国短毛猫素以体格魁伟，骨胳粗壮，肌肉发达，生性聪明，性格温顺而著称，是短毛猫类中大型品种。被毛厚密，毛色多达30余种，其中银色条纹品种尤为名贵。</p>
+						</div>
+					)
+				}
+			})
 			let App = React.createClass({
 				render:function() {
 					return (
 						<div>
-							<h1>simple SAP</h1>
+							<h1 className="top">simple SAP</h1>
 							<ul className="header">
 								<li>美短猫</li>
 								<li>布偶猫</li>
 								<li>波斯猫</li>
 							</ul>
-						</div>
-						
+							<div className="content">		
+								<Home />
+							</div>
+						</div>				
 					)
 				}
 			})
 			ReactDOM.render(
-				<div>hello ct </div>
+//				<ReactRouter.Router history = {ReactRouter.
+//					hashHistory}>
+//					<ReactRouter.Route path="/"
+//						component = {App}/>
+//					
+//				</ReactRouter.Router>
+<div>
+<App />
+</div>
 				,container				
 			);
 		</script>
