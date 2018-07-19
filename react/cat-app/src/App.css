@@ -49,6 +49,9 @@ ul.header li a.active {
 .content li {
 	margin-bottom: 10px;
 }
+.content li p {
+	text-indent: 2em;
+}
 
 .App-logo {
 	animation: App-logo-spin infinite 20s linear;

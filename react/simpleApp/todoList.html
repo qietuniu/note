@@ -8,8 +8,53 @@
 		<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
 		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
 		<style type="text/css">
-			body{
+			*{
 				padding: 0;
+				margin: 0;
+			}
+			body {
+				padding: 50px;
+				background-color: #66CCFF;				
+				font-family: sans-serif;
+			}
+			.todoListMain form{
+				width: 291px;
+			}
+			.todoListMain .header input {
+				padding: 10px;
+				font-size: 16px;
+				border: 2px solid #FFF;
+				vertical-align: middle;
+			}
+			
+			.todoListMain .header button {
+				padding: 8px;
+				font-size: 16px;
+				margin: 10px;
+				background-color: #06f;
+				color: #FFF;
+				border: 2px solid #06f;
+				vertical-align: middle;
+			}
+			
+			.todoListMain .header button:hover {
+				background-color: #039;
+				border: 2px solid #039;
+				cursor: pointer;
+			}
+			
+			.todoListMain .theList {
+				list-style: none;
+				padding-left: 0;
+				width: 282px;
+			}
+			
+			.todoListMain .theList li {
+				color: #333;
+				background-color: rgba(255, 255, 255, .5);
+				padding: 15px;
+				margin-bottom: 15px;
+				border-radius: 5px;
 			}
 		</style>
 	</head>
@@ -17,12 +62,60 @@
 	<body>
 		<div id="container"></div>
 		<script type="text/babel">
-			var container = document.querySelector("#container");
+			var container = document.querySelector("#container"); 
+			var TodoItems = React.createClass({
+				render: function(){
+					var todoEntries = this.props.entries;
+					function createTasks(item) {
+						return (
+							<li>{item.text}</li>
+						);
+					};
+					var listItems = todoEntries.map(createTasks);
+					return (
+						<ul className="theList">
+							{listItems}
+						</ul>
+					);
+				}
+			});
+			var ToDoList = React.createClass({ 
+				getInitialState: function(){
+					return {
+						items:[]
+					}
+				},
+				addItem:function(e){
+					var itemArray = this.state.items;
+					itemArray.push({
+							text: this._inputElement.value,
+							key: Date.now()
+					});
+					this._inputElement.value = '';
+					this._inputElement.focus();
+					this.setState({
+						items: itemArray
+					});
+					e.preventDefault();//不向后台提交数据包
+				},
+				render:function(){ 
+					return (
+						<div className="todoListMain">
+							<div className="header">
+								<form onSubmit={this.addItem}>
+									<input placeholder="请输入一个任务" ref={(a) => this._inputElement=a}/>
+									<button type="submit">添加</button>
+								</form>
+							</div>
+							<TodoItems entries = {this.state.items}/>
+						</div>
+					) } 
+			});
 			ReactDOM.render(
-				<div>react to do list app</div>
-				,container				
+				<ToDoList/> 
+				,container 
 			);
-			
+
 		</script>
 	</body>
 
