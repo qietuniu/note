@@ -3,6 +3,14 @@ import {
 	HeaderWrapper, Logo, Nav, NavItem, NavSearch,Addition,Button,SearchWrapper
 } from './style'
 class Header extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			focused: true
+		}
+	}
+	
 	render() {
 		return (
 			<HeaderWrapper>
@@ -16,8 +24,8 @@ class Header extends Component {
 						<i className="iconfont">&#xe636;</i>
 					</NavItem>
 					<SearchWrapper>
-						<NavSearch />
-						<i className="iconfont">&#xe615;</i>
+						<NavSearch className={this.focused ?'focused':''}/>
+						<i className={this.focused ?'focused iconfont':'iconfont'} >&#xe614;</i>
 					</SearchWrapper>
 					
 				</Nav>
