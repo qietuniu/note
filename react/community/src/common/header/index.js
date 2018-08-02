@@ -91,7 +91,7 @@ const mapDispatchToProps = (dispatch) => {
 //			const action = {
 //				type: 'search_focus'
 //			};
-			if(list.size == 0){
+			if(list.size === 0){
 				dispatch(actionCreators.getList());
 			}			
 			dispatch(actionCreators.searchFocus());
