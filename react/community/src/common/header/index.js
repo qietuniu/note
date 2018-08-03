@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem, SearchInfoList } from './style'
 import { CSSTransition } from 'react-transition-group';
 import  { actionCreators } from './store';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {	
 	getListArea(){
@@ -43,7 +44,10 @@ class Header extends Component {
 		const { focused, handleIputFocus, handleInputBlur, list} = this.props;
 		return (
 		<HeaderWrapper>
-			<Logo />
+			<Link to='/'>
+				<Logo />
+			</Link>
+			
 			<Nav>
 				<NavItem className="fl active">首页</NavItem>
 				<NavItem className="fl">下载App</NavItem>

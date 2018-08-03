@@ -56,6 +56,25 @@ export const MoreTopic = styled.a `
     color: #787878;
     
 `
+
+export const ListWrapper = styled.div `
+	.load-more{
+		display:block;
+		box-sizing:border-box;
+		width: 100%;
+	    border-radius: 20px;
+	    background-color: #a5a5a5;
+	    height: 40px;
+	    margin: 30px auto 60px;
+	    padding: 10px 15px;
+	    text-align: center;
+	    font-size: 15px;
+	    color: #fff;
+	    line-height:20px;
+	    cursor:pointer;
+	}
+`
+
 export const ListItem = styled.div `
 	padding:20px 0;
 	border-bottom:1px solid #dcdcdc;
@@ -87,6 +106,7 @@ export const RecommendWrapper = styled.div `
 	margin-top:26px;
 	width:280px;
 	overflow:hidden;
+
 `
 
 export const RecommendItem = styled.div `
@@ -204,4 +224,18 @@ export const WriterItem = styled.div `
 	    color: #969696;
 	}
 
+`
+export const BackTop = styled.div `
+	position:fixed;
+	right:30px;
+	bottom:30px;
+	width:60px;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+	font-size:12px;
+	color:#999;
+	border:1px solid #ccc;
+	border-radius:2px;
+	cursor:pointer;
 `
