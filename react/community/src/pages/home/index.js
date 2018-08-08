@@ -8,11 +8,6 @@ import Writer from './components/Writer';
 import { actionCreators } from './store';
 
 class Home extends PureComponent {
-	
-	shouldComponentUpdate() {
-		
-	}
-	
 	handleScrollTop(){
 		window.scrollTo(0,0);
 	}
