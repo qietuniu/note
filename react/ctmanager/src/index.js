@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Life from './pages/demo/Life';
+import Admin from './admin';
+import './static/style/common.less'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Life />, document.getElementById('root'));
+ReactDOM.render(<Admin />, document.getElementById('root'));
 registerServiceWorker();
