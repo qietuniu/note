@@ -3,8 +3,9 @@ import {HashRouter, Route, Switch} from 'react-router-dom';
 import App from './App';
 import Login from './pages/login';
 import Admin from './admin';
-import Buttons from './pages/Login';
-
+import Buttons from './pages/ui/buttons';
+import Modals from './pages/ui/modals';
+import NoMatch from './pages/noMatch'
 export default class IRouter extends Component{
     render(){
         return (
@@ -13,7 +14,12 @@ export default class IRouter extends Component{
                     <Route path='/login' component={Login} />
                     <Route path='/admin' render={() => 
                       <Admin>
-                        <Route path='/admin/ui/buttons' component={Login}/>
+                        <Switch>
+                            <Route path='/admin/ui/buttons' component={Buttons}/>
+                            <Route path='/admin/ui/modals' component={Modals}/>
+                            <Route component={NoMatch}/>
+                        </Switch>
+                        
                       </Admin>
                     } />
                     <Route path='/order/detail' component={Login} />
