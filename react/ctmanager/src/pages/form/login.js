@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Form, Input, message } from 'antd';
+import { Card, Button, Form, Input, message, Icon, Checkbox } from 'antd';
 import './form.less';
 
 class FormLogin extends Component{
@@ -44,25 +44,36 @@ class FormLogin extends Component{
                                             message:"长度为5-10位"
                                         },
                                         {
-                                            pattern:/^\w/g,
-                                            message:"用户名不能为空"
+                                            pattern:new RegExp('^\\w+$','g'),
+                                            message:"用户名必须为字母或者数字"
                                         }
                                     ]
                                 })(
-                                    <Input placeholder="请输入用户名" />
+                                    <Input prefix={<Icon type="user"/>} placeholder="请输入用户名" />
                                 )
                             }
                             
                         </Form.Item>
                         <Form.Item>
                             {
-                                getFieldDecorator('userPwd',{
+                                getFieldDecorator('remember',{
                                     initialValue:'123456',
                                     rules:[]
                                 })(
-                                    <Input placeholder="请输入密码" />
+                                    <Input prefix={<Icon type="lock"/>} placeholder="请输入密码" />
                                 )
                             }
+                        </Form.Item>
+                        <Form.Item>
+                            {
+                                getFieldDecorator('userPwd',{
+                                    valuePropName:'checked',
+                                    initialValue:true
+                                })(
+                                    <Checkbox>记住密码</Checkbox>
+                                )
+                            }
+                            <a href="#" style={{float:"right"}}>忘记密码</a>
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" onClick={this.handleSubmit}>登录</Button>
