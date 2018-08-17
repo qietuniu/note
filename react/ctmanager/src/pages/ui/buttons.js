@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Link} from 'react-router-dom';
 import { Card, Button, Icon, Radio } from 'antd';
 import './ui.less';
 export default class Buttons extends Component{
