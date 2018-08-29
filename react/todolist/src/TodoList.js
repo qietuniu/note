@@ -1,9 +1,15 @@
 import React , { Component } from 'react';
 import 'antd/dist/antd.css'; 
+<<<<<<< HEAD
 
 import store from './store';
 import { getInputChangeAction, getAddItemAction, getItemDelete } from './store/actionCreators'
 import ToDoListUI from './ToDoListUI'
+=======
+import { Input,Button,List   } from 'antd';
+import store from './store'
+import axios from 'axios'
+>>>>>>> e9cc9c204e86add4d03a1c2679d34fe17dd312ba
 
 class TodoList extends Component{
 	
@@ -27,7 +33,11 @@ class TodoList extends Component{
 			/>
 		)
 	}
-	
+	componentDidMount(){
+		axios.get('/list.json').then(() => {
+			
+		})
+	}
 	handleInputChange(e){
 //		const action = {
 //			type:CHANGE_INPUT_VALUE,
