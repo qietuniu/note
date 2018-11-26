@@ -99,6 +99,8 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.8.0"
+    "babel-plugin-import": "^1.8.0",
+    "draftjs-to-html": "^0.8.4",
+    "react-draft-wysiwyg": "^1.12.13"
   }
 }
