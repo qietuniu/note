@@ -18,7 +18,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style rel="stylesheet/less" lang="less" scoped>
+<style rel="stylesheet/scss" lang="scss" scoped>
+
 .content{
   width:100%;
   height:400px;
@@ -37,7 +38,19 @@ export default {
     background: #000;
     &.item1{
       // line-height: 40px;
-      align-self: flex-end;
+      // align-self: flex-end;
+      order:1
+    }
+    &.item2{
+      // line-height: 40px;
+      // align-self: flex-end;
+      order:3
+    }
+    &.item3{
+      // line-height: 40px;
+      // align-self: flex-end;
+      order:2;
+      // flex-grow:2
     }
   }
 }
