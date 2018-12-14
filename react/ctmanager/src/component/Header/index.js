@@ -35,29 +35,40 @@ export default class Header extends Component {
         
     }
     render() {
+        const { menuName, menuType } = this.props;
         return (
             <div className="header">
                 <Row className="header-top">
-                    <Col span='24'>
-                        <span>hi, {this.state.userName}</span>
+                    {
+                        menuType?
+                            <Col span="6" className="single-logo">
+                                <img src="/assets/logo-ant.svg" alt=""/>
+                                <span>ct通用管理系统</span>
+                            </Col>:''
+                    }
+                    <Col span={menuType?18:24}>
+                        <span>欢迎，{this.state.userName}</span>
                         <a href="#">退出</a>
                     </Col>
                 </Row>
-                    
-                <Row className="breadcrumb">
-                    <Col span='4' className="breadcrumb-title">
-                        首页
-                    </Col>
-                    <Col span='20' className="weather">
-                        <span className="date">{this.state.sysTime}</span>
-                        <img className="weather-img" src={this.state.dayPictureUrl} />
-                        <span className="weather-detail">
+                {
+                    menuType?'':
+                    <Row className="breadcrumb">
+                        <Col span='4' className="breadcrumb-title">
+                            首页
+                        </Col>
+                        <Col span='20' className="weather">
+                            <span className="date">{this.state.sysTime}</span>
+                            <img className="weather-img" src={this.state.dayPictureUrl} />
+                            <span className="weather-detail">
+                                
+                                {this.state.weather}
+                            </span>
                             
-                            {this.state.weather}
-                        </span>
-                        
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                }   
+                
             </div>
         )
     } 

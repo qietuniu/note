@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import React, {
+	Component
+} from "react";
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import Login from './pages/login';
 import Admin from './admin';
@@ -18,16 +20,23 @@ import HighTable from './pages/table/highTable';
 import Rich from './pages/rich';
 import City from './pages/city/index';
 import Order from './pages/order/index';
+import OrderDetail from './pages/order/detail'
+//import OrderDetail from './pages/order/detail'
 import NoMatch from './pages/noMatch';
 
 import Common from './common';
 
-export default class IRouter extends Component{
-    render(){
-        return (
-            <HashRouter>
+export default class IRouter extends Component {
+	render() {
+		return(
+			<HashRouter>
                 <App>
                     <Route path='/login' component={Login} />
+                    <Route path='/common' render={() =>{
+                        return <Common>
+                            <Route path='/common/order/detail/:orderId' component={OrderDetail}/>
+                        </Common>
+                    }}/>
                     <Route path='/admin' render={() => 
                       <Admin>
                         <Switch>
@@ -51,14 +60,8 @@ export default class IRouter extends Component{
                         
                       </Admin>
                     } />
-                    <Route path="/admin" render={() => {
-                        <Common>
-                            <Route path = "/common/order/detail/:orderId" component={Login}/>
-                        </Common>
-                    }}                    
-                    />
                 </App>
             </HashRouter>
-        )
-    }
+		)
+	}
 }

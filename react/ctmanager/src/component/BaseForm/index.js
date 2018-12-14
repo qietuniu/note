@@ -5,7 +5,6 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 class FilterForm extends React.Component{
-
     handleFilterSubmit = ()=>{
         let fieldsValue = this.props.form.getFieldsValue();
         this.props.filterSubmit(fieldsValue);
@@ -22,6 +21,7 @@ class FilterForm extends React.Component{
         if (formList && formList.length>0){
             formList.forEach((item,i)=>{
                 let label = item.label;
+                
                 let field = item.field;
                 let initialValue = item.initialValue || '';
                 let placeholder = item.placeholder;

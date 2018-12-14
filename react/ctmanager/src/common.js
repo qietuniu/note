@@ -7,10 +7,10 @@ export default class Common extends Component {
     render() {
         return (
             <div>
-                <Row className="container">
+                <Row className="simple-page">
                    <Header menuType = "second"/>            
                 </Row>
-                <Row>
+                <Row className="content">
                     {this.props.children}
                 </Row>
             </div>
