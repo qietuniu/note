@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oTxtUser = document.getElementById('user')
+				var oTxtPwd = document.getElementById('pwd')
+				var oBtnReg = document.getElementById('reg_btn')
+				var oBtnLg = document.getElementById('lg_btn')
+				
+				oBtnReg.onclick = function() {
+					ajax({
+						url:'/user',
+						data:{act:'reg', user:oTxtUser.value, pwd:oTxtPwd.value},
+						type:'get',
+						success: function(str) {
+							var json = eval('(' + str + ')')
+							if(json.code) {
+								alert("注册成功！")
+							} else {
+								alert("注册失败," + json.msg)
+							}
+						},
+						error: function() {
+							alert("网络错误！")
+						}
+					})
+				}
+				oBtnLg.onclick = function() {
+					ajax({
+						url:'/user',
+						data:{act:'login', user:oTxtUser.value, pwd:oTxtPwd.value},
+						type:'get',
+						success: function(str) {
+							var json = eval('(' + str + ')')
+							if(json.code) {
+								alert("登录成功！")
+							} else {
+								alert("登录失败," + json.msg)
+							}
+						},
+						error: function() {
+							alert("网络错误！")
+						}
+					})
+				}
+			}
+		</script>
+	</head>
+	<body>
+		用户：<input type="text" id="user" value=""/>
+		密码：<input type="password" id="pwd" value=""/>
+		<input type="button" value="注册" id="reg_btn"/>
+		<input type="button" value="登录" id="lg_btn"/>
+	</body>
+</html>
